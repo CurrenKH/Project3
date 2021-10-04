@@ -85,15 +85,25 @@ namespace Project3
                     existingMovie.ImagePath = xmlReader.ReadElementContentAsString();
 
 
-                    // Add existingMovie to the movieList
+                    //  Add existingMovie to the movieList
                     movieList.Add(existingMovie);
-                    movieListView.Items.Add(existingMovie.Title);
 
-                    foreach (Movie movies in movieList)
+                    //  Create ListViewItem to hold the title and year for each movie
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Text = existingMovie.Title;
+                    lvi.SubItems.Add(existingMovie.Year.ToString());
+
+                    movieListView.Items.Add(lvi);
+
+                    //  Add movie titles to ListView
+                    //movieListView.Items.Add(existingMovie.Title);
+
+                    //movieListView.Items[0].SubItems.Add(existingMovie.Year.ToString());
+
+                    /*for (int i = 0; i < movieList.Count; i++)
                     {
-
                         movieListView.Items[0].SubItems.Add(existingMovie.Year.ToString());
-                    }
+                    }*/
 
                 } while (xmlReader.ReadToFollowing("movie")); // Move to the next 'movie' node in the XML file
 

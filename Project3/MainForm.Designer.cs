@@ -86,7 +86,7 @@
             this.columnTitle,
             this.columnYear});
             this.movieListView.HideSelection = false;
-            this.movieListView.Location = new System.Drawing.Point(27, 79);
+            this.movieListView.Location = new System.Drawing.Point(12, 78);
             this.movieListView.Name = "movieListView";
             this.movieListView.Size = new System.Drawing.Size(380, 448);
             this.movieListView.TabIndex = 1;
@@ -97,11 +97,11 @@
             // imageMovieLabel
             // 
             this.imageMovieLabel.AutoSize = true;
-            this.imageMovieLabel.Location = new System.Drawing.Point(439, 343);
+            this.imageMovieLabel.Location = new System.Drawing.Point(406, 343);
             this.imageMovieLabel.Name = "imageMovieLabel";
-            this.imageMovieLabel.Size = new System.Drawing.Size(50, 17);
+            this.imageMovieLabel.Size = new System.Drawing.Size(83, 17);
             this.imageMovieLabel.TabIndex = 41;
-            this.imageMovieLabel.Text = "Image:";
+            this.imageMovieLabel.Text = "Image Path:";
             // 
             // ratingMovieTextBox
             // 
@@ -114,7 +114,7 @@
             // ratingMovieLabel
             // 
             this.ratingMovieLabel.AutoSize = true;
-            this.ratingMovieLabel.Location = new System.Drawing.Point(433, 304);
+            this.ratingMovieLabel.Location = new System.Drawing.Point(436, 304);
             this.ratingMovieLabel.Name = "ratingMovieLabel";
             this.ratingMovieLabel.Size = new System.Drawing.Size(53, 17);
             this.ratingMovieLabel.TabIndex = 39;
@@ -368,7 +368,7 @@
             // 
             // consultMovieButton
             // 
-            this.consultMovieButton.Location = new System.Drawing.Point(715, 373);
+            this.consultMovieButton.Location = new System.Drawing.Point(715, 383);
             this.consultMovieButton.Name = "consultMovieButton";
             this.consultMovieButton.Size = new System.Drawing.Size(139, 63);
             this.consultMovieButton.TabIndex = 22;
@@ -378,7 +378,7 @@
             // 
             // addMovieButton
             // 
-            this.addMovieButton.Location = new System.Drawing.Point(860, 373);
+            this.addMovieButton.Location = new System.Drawing.Point(860, 383);
             this.addMovieButton.Name = "addMovieButton";
             this.addMovieButton.Size = new System.Drawing.Size(139, 63);
             this.addMovieButton.TabIndex = 23;
@@ -387,7 +387,7 @@
             // 
             // selectImageButton
             // 
-            this.selectImageButton.Location = new System.Drawing.Point(780, 327);
+            this.selectImageButton.Location = new System.Drawing.Point(780, 331);
             this.selectImageButton.Name = "selectImageButton";
             this.selectImageButton.Size = new System.Drawing.Size(195, 40);
             this.selectImageButton.TabIndex = 24;
