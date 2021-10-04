@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Project3
 {
-    class Movie
+    public class Movie
     {
+        //  Property for genre
+        public string Genre { get; set; }
+
         //  Property for title
         public string Title { get; set; }
 
@@ -15,7 +18,7 @@ namespace Project3
         public int Year { get; set; }
 
         //  Property for length
-        public TimeSpan Length { get; set; }
+        public string Length { get; set; }
 
         //  Property for director
         public string Director { get; set; }
@@ -29,17 +32,19 @@ namespace Project3
         //  Constructor
         public Movie()
         {
+            Genre = "";
             Title = "";
             Year = 0;
-            Length = new TimeSpan(0);
+            Length = "";
             Director = "";
             Rating = 0;
             ImagePath = "";
         }
 
         //  Overload constructor
-        public Movie(string title, int year, TimeSpan length, string director, int rating, string imagepath)
+        public Movie(string genre, string title, int year, string length, string director, int rating, string imagepath)
         {
+            Genre = genre;
             Title = title;
             Year = year;
             Length = length;
