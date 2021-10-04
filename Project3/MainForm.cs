@@ -125,9 +125,9 @@ namespace Project3
         private void ConsultMovieButton_Click(object sender, EventArgs e)
         {
             //  If a series is not selected in the ListBox
-            if (movieListView.SelectedItems.Count < 0)
+            if (movieListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("You must select a series from the list.");
+                MessageBox.Show("You must select a movie from the list.");
             }
             else
             {
