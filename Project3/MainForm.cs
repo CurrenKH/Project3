@@ -89,6 +89,12 @@ namespace Project3
                     movieList.Add(existingMovie);
                     movieListView.Items.Add(existingMovie.Title);
 
+                    foreach (Movie movies in movieList)
+                    {
+
+                        movieListView.Items[0].SubItems.Add(existingMovie.Year.ToString());
+                    }
+
                 } while (xmlReader.ReadToFollowing("movie")); // Move to the next 'movie' node in the XML file
 
                 // Close reader
@@ -109,7 +115,7 @@ namespace Project3
         private void ConsultMovieButton_Click(object sender, EventArgs e)
         {
             //  If a series is not selected in the ListBox
-            if (movieListView.SelectedItems.Count > 0)
+            if (movieListView.SelectedItems.Count < 0)
             {
                 MessageBox.Show("You must select a series from the list.");
             }
@@ -128,20 +134,22 @@ namespace Project3
 
         private void MovieListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            foreach (Movie currentMovie in movieList)
+            
+            if (movieListView.SelectedItems.Count > 0)
             {
-                if (movieListView.SelectedIndices.ToString() == currentMovie.Title)
-                {
-                    //  Show index of selected item
-                    titleMovieTextBox.Text = currentMovie.Title;
-                    genreMovieTextBox.Text = currentMovie.Genre;
-                    yearMovieTextBox.Text = currentMovie.Year.ToString();
-                    lengthMovieTextBox.Text = currentMovie.Length;
-                    directorMovieTextBox.Text = currentMovie.Director;
-                    ratingMovieTextBox.Text = currentMovie.Rating.ToString();
-                    imageMovieTextBox.Text = currentMovie.ImagePath;
-                }
+                //  Declare index selected from ListView to variable
+                int selectedIndex = movieListView.SelectedIndices[0];
+                Movie selectedMovie = new Movie();
+                selectedMovie = movieList[selectedIndex];
+
+                //  Show index of selected item
+                titleMovieTextBox.Text = selectedMovie.Title;
+                genreMovieTextBox.Text = selectedMovie.Genre;
+                yearMovieTextBox.Text = selectedMovie.Year.ToString();
+                lengthMovieTextBox.Text = selectedMovie.Length;
+                directorMovieTextBox.Text = selectedMovie.Director;
+                ratingMovieTextBox.Text = selectedMovie.Rating.ToString();
+                imageMovieTextBox.Text = selectedMovie.ImagePath;
             }
         }
     }
