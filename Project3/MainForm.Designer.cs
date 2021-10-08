@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleLabel = new System.Windows.Forms.Label();
             this.movieListView = new System.Windows.Forms.ListView();
+            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageMovieLabel = new System.Windows.Forms.Label();
             this.ratingMovieTextBox = new System.Windows.Forms.TextBox();
             this.ratingMovieLabel = new System.Windows.Forms.Label();
@@ -45,13 +48,11 @@
             this.movieInfoLabel = new System.Windows.Forms.Label();
             this.genreMovieTextBox = new System.Windows.Forms.TextBox();
             this.imageMovieTextBox = new System.Windows.Forms.TextBox();
-            this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.genreLabel = new System.Windows.Forms.Label();
             this.selectGenreLabel = new System.Windows.Forms.Label();
             this.addMovieLabel = new System.Windows.Forms.Label();
-            this.genreAddMovieComboBox = new System.Windows.Forms.ComboBox();
             this.genreAddMovieLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleAddMovieTextBox = new System.Windows.Forms.TextBox();
             this.titleAddMovieLabel = new System.Windows.Forms.Label();
             this.yearAddMovieTextBox = new System.Windows.Forms.TextBox();
             this.yearAddMovieLabel = new System.Windows.Forms.Label();
@@ -64,10 +65,13 @@
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.consultMovieButton = new System.Windows.Forms.Button();
             this.addMovieButton = new System.Windows.Forms.Button();
-            this.selectImageButton = new System.Windows.Forms.Button();
             this.movieListViewTitleLabel = new System.Windows.Forms.Label();
-            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.genreAddMovieTextBox = new System.Windows.Forms.TextBox();
+            this.imagePathAddMovieTextBox = new System.Windows.Forms.TextBox();
+            this.genreListBox = new System.Windows.Forms.ListBox();
+            this.moviePictureBox = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -93,6 +97,15 @@
             this.movieListView.UseCompatibleStateImageBehavior = false;
             this.movieListView.View = System.Windows.Forms.View.Details;
             this.movieListView.SelectedIndexChanged += new System.EventHandler(this.MovieListView_SelectedIndexChanged);
+            // 
+            // columnTitle
+            // 
+            this.columnTitle.Text = "Title";
+            this.columnTitle.Width = 180;
+            // 
+            // columnYear
+            // 
+            this.columnYear.Text = "Year";
             // 
             // imageMovieLabel
             // 
@@ -223,14 +236,6 @@
             this.imageMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.imageMovieTextBox.TabIndex = 46;
             // 
-            // genreComboBox
-            // 
-            this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Location = new System.Drawing.Point(495, 403);
-            this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(195, 24);
-            this.genreComboBox.TabIndex = 3;
-            // 
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
@@ -254,40 +259,32 @@
             // 
             this.addMovieLabel.AutoSize = true;
             this.addMovieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addMovieLabel.Location = new System.Drawing.Point(830, 78);
+            this.addMovieLabel.Location = new System.Drawing.Point(1121, 80);
             this.addMovieLabel.Name = "addMovieLabel";
             this.addMovieLabel.Size = new System.Drawing.Size(96, 20);
             this.addMovieLabel.TabIndex = 6;
             this.addMovieLabel.Text = "Add Movie";
             // 
-            // genreAddMovieComboBox
-            // 
-            this.genreAddMovieComboBox.FormattingEnabled = true;
-            this.genreAddMovieComboBox.Location = new System.Drawing.Point(780, 148);
-            this.genreAddMovieComboBox.Name = "genreAddMovieComboBox";
-            this.genreAddMovieComboBox.Size = new System.Drawing.Size(195, 24);
-            this.genreAddMovieComboBox.TabIndex = 7;
-            // 
             // genreAddMovieLabel
             // 
             this.genreAddMovieLabel.AutoSize = true;
-            this.genreAddMovieLabel.Location = new System.Drawing.Point(722, 151);
+            this.genreAddMovieLabel.Location = new System.Drawing.Point(1013, 153);
             this.genreAddMovieLabel.Name = "genreAddMovieLabel";
             this.genreAddMovieLabel.Size = new System.Drawing.Size(52, 17);
             this.genreAddMovieLabel.TabIndex = 8;
             this.genreAddMovieLabel.Text = "Genre:";
             // 
-            // textBox1
+            // titleAddMovieTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(780, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 22);
-            this.textBox1.TabIndex = 9;
+            this.titleAddMovieTextBox.Location = new System.Drawing.Point(1071, 113);
+            this.titleAddMovieTextBox.Name = "titleAddMovieTextBox";
+            this.titleAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
+            this.titleAddMovieTextBox.TabIndex = 9;
             // 
             // titleAddMovieLabel
             // 
             this.titleAddMovieLabel.AutoSize = true;
-            this.titleAddMovieLabel.Location = new System.Drawing.Point(735, 114);
+            this.titleAddMovieLabel.Location = new System.Drawing.Point(1026, 116);
             this.titleAddMovieLabel.Name = "titleAddMovieLabel";
             this.titleAddMovieLabel.Size = new System.Drawing.Size(39, 17);
             this.titleAddMovieLabel.TabIndex = 10;
@@ -295,7 +292,7 @@
             // 
             // yearAddMovieTextBox
             // 
-            this.yearAddMovieTextBox.Location = new System.Drawing.Point(780, 187);
+            this.yearAddMovieTextBox.Location = new System.Drawing.Point(1071, 189);
             this.yearAddMovieTextBox.Name = "yearAddMovieTextBox";
             this.yearAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.yearAddMovieTextBox.TabIndex = 11;
@@ -303,7 +300,7 @@
             // yearAddMovieLabel
             // 
             this.yearAddMovieLabel.AutoSize = true;
-            this.yearAddMovieLabel.Location = new System.Drawing.Point(732, 190);
+            this.yearAddMovieLabel.Location = new System.Drawing.Point(1023, 192);
             this.yearAddMovieLabel.Name = "yearAddMovieLabel";
             this.yearAddMovieLabel.Size = new System.Drawing.Size(42, 17);
             this.yearAddMovieLabel.TabIndex = 12;
@@ -311,7 +308,7 @@
             // 
             // lengthAddMovieTextBox
             // 
-            this.lengthAddMovieTextBox.Location = new System.Drawing.Point(780, 224);
+            this.lengthAddMovieTextBox.Location = new System.Drawing.Point(1071, 226);
             this.lengthAddMovieTextBox.Name = "lengthAddMovieTextBox";
             this.lengthAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.lengthAddMovieTextBox.TabIndex = 13;
@@ -319,7 +316,7 @@
             // lengthAddMovieLabel
             // 
             this.lengthAddMovieLabel.AutoSize = true;
-            this.lengthAddMovieLabel.Location = new System.Drawing.Point(718, 227);
+            this.lengthAddMovieLabel.Location = new System.Drawing.Point(1009, 229);
             this.lengthAddMovieLabel.Name = "lengthAddMovieLabel";
             this.lengthAddMovieLabel.Size = new System.Drawing.Size(56, 17);
             this.lengthAddMovieLabel.TabIndex = 14;
@@ -328,7 +325,7 @@
             // directorAddMovieLabel
             // 
             this.directorAddMovieLabel.AutoSize = true;
-            this.directorAddMovieLabel.Location = new System.Drawing.Point(712, 265);
+            this.directorAddMovieLabel.Location = new System.Drawing.Point(1003, 267);
             this.directorAddMovieLabel.Name = "directorAddMovieLabel";
             this.directorAddMovieLabel.Size = new System.Drawing.Size(62, 17);
             this.directorAddMovieLabel.TabIndex = 15;
@@ -336,7 +333,7 @@
             // 
             // directorAddMovieTextBox
             // 
-            this.directorAddMovieTextBox.Location = new System.Drawing.Point(780, 262);
+            this.directorAddMovieTextBox.Location = new System.Drawing.Point(1071, 264);
             this.directorAddMovieTextBox.Name = "directorAddMovieTextBox";
             this.directorAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.directorAddMovieTextBox.TabIndex = 16;
@@ -344,7 +341,7 @@
             // ratingAddMovieLabel
             // 
             this.ratingAddMovieLabel.AutoSize = true;
-            this.ratingAddMovieLabel.Location = new System.Drawing.Point(718, 302);
+            this.ratingAddMovieLabel.Location = new System.Drawing.Point(1009, 304);
             this.ratingAddMovieLabel.Name = "ratingAddMovieLabel";
             this.ratingAddMovieLabel.Size = new System.Drawing.Size(53, 17);
             this.ratingAddMovieLabel.TabIndex = 17;
@@ -352,7 +349,7 @@
             // 
             // ratingAddMovieTextBox
             // 
-            this.ratingAddMovieTextBox.Location = new System.Drawing.Point(780, 299);
+            this.ratingAddMovieTextBox.Location = new System.Drawing.Point(1071, 301);
             this.ratingAddMovieTextBox.Name = "ratingAddMovieTextBox";
             this.ratingAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.ratingAddMovieTextBox.TabIndex = 18;
@@ -360,7 +357,7 @@
             // imageAddMovieLabel
             // 
             this.imageAddMovieLabel.AutoSize = true;
-            this.imageAddMovieLabel.Location = new System.Drawing.Point(724, 341);
+            this.imageAddMovieLabel.Location = new System.Drawing.Point(1015, 343);
             this.imageAddMovieLabel.Name = "imageAddMovieLabel";
             this.imageAddMovieLabel.Size = new System.Drawing.Size(50, 17);
             this.imageAddMovieLabel.TabIndex = 20;
@@ -368,7 +365,7 @@
             // 
             // consultMovieButton
             // 
-            this.consultMovieButton.Location = new System.Drawing.Point(715, 383);
+            this.consultMovieButton.Location = new System.Drawing.Point(1006, 385);
             this.consultMovieButton.Name = "consultMovieButton";
             this.consultMovieButton.Size = new System.Drawing.Size(139, 63);
             this.consultMovieButton.TabIndex = 22;
@@ -378,21 +375,13 @@
             // 
             // addMovieButton
             // 
-            this.addMovieButton.Location = new System.Drawing.Point(860, 383);
+            this.addMovieButton.Location = new System.Drawing.Point(1151, 385);
             this.addMovieButton.Name = "addMovieButton";
             this.addMovieButton.Size = new System.Drawing.Size(139, 63);
             this.addMovieButton.TabIndex = 23;
             this.addMovieButton.Text = "Add Movie";
             this.addMovieButton.UseVisualStyleBackColor = true;
-            // 
-            // selectImageButton
-            // 
-            this.selectImageButton.Location = new System.Drawing.Point(780, 331);
-            this.selectImageButton.Name = "selectImageButton";
-            this.selectImageButton.Size = new System.Drawing.Size(195, 40);
-            this.selectImageButton.TabIndex = 24;
-            this.selectImageButton.Text = "select image";
-            this.selectImageButton.UseVisualStyleBackColor = true;
+            this.addMovieButton.Click += new System.EventHandler(this.AddMovieButton_Click);
             // 
             // movieListViewTitleLabel
             // 
@@ -404,20 +393,53 @@
             this.movieListViewTitleLabel.TabIndex = 47;
             this.movieListViewTitleLabel.Text = "Movies";
             // 
-            // columnTitle
+            // genreAddMovieTextBox
             // 
-            this.columnTitle.Text = "Title";
-            this.columnTitle.Width = 180;
+            this.genreAddMovieTextBox.Location = new System.Drawing.Point(1071, 150);
+            this.genreAddMovieTextBox.Name = "genreAddMovieTextBox";
+            this.genreAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
+            this.genreAddMovieTextBox.TabIndex = 48;
             // 
-            // columnYear
+            // imagePathAddMovieTextBox
             // 
-            this.columnYear.Text = "Year";
+            this.imagePathAddMovieTextBox.Location = new System.Drawing.Point(1071, 340);
+            this.imagePathAddMovieTextBox.Name = "imagePathAddMovieTextBox";
+            this.imagePathAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
+            this.imagePathAddMovieTextBox.TabIndex = 49;
+            // 
+            // genreListBox
+            // 
+            this.genreListBox.FormattingEnabled = true;
+            this.genreListBox.ItemHeight = 16;
+            this.genreListBox.Location = new System.Drawing.Point(485, 406);
+            this.genreListBox.Name = "genreListBox";
+            this.genreListBox.Size = new System.Drawing.Size(205, 132);
+            this.genreListBox.TabIndex = 50;
+            this.genreListBox.SelectedIndexChanged += new System.EventHandler(this.GenreListBox_SelectedIndexChanged);
+            // 
+            // moviePictureBox
+            // 
+            this.moviePictureBox.Location = new System.Drawing.Point(700, 78);
+            this.moviePictureBox.Name = "moviePictureBox";
+            this.moviePictureBox.Size = new System.Drawing.Size(300, 400);
+            this.moviePictureBox.TabIndex = 51;
+            this.moviePictureBox.TabStop = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 542);
+            this.ClientSize = new System.Drawing.Size(1299, 564);
+            this.Controls.Add(this.moviePictureBox);
+            this.Controls.Add(this.genreListBox);
+            this.Controls.Add(this.imagePathAddMovieTextBox);
+            this.Controls.Add(this.genreAddMovieTextBox);
             this.Controls.Add(this.movieListViewTitleLabel);
             this.Controls.Add(this.imageMovieTextBox);
             this.Controls.Add(this.genreMovieTextBox);
@@ -434,7 +456,6 @@
             this.Controls.Add(this.titleMovieTextBox);
             this.Controls.Add(this.genreMovieLabel);
             this.Controls.Add(this.movieInfoLabel);
-            this.Controls.Add(this.selectImageButton);
             this.Controls.Add(this.addMovieButton);
             this.Controls.Add(this.consultMovieButton);
             this.Controls.Add(this.imageAddMovieLabel);
@@ -447,18 +468,17 @@
             this.Controls.Add(this.yearAddMovieLabel);
             this.Controls.Add(this.yearAddMovieTextBox);
             this.Controls.Add(this.titleAddMovieLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.titleAddMovieTextBox);
             this.Controls.Add(this.genreAddMovieLabel);
-            this.Controls.Add(this.genreAddMovieComboBox);
             this.Controls.Add(this.addMovieLabel);
             this.Controls.Add(this.selectGenreLabel);
             this.Controls.Add(this.genreLabel);
-            this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.movieListView);
             this.Controls.Add(this.titleLabel);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,13 +503,11 @@
         private System.Windows.Forms.Label movieInfoLabel;
         private System.Windows.Forms.TextBox genreMovieTextBox;
         private System.Windows.Forms.TextBox imageMovieTextBox;
-        private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.Label genreLabel;
         private System.Windows.Forms.Label selectGenreLabel;
         private System.Windows.Forms.Label addMovieLabel;
-        private System.Windows.Forms.ComboBox genreAddMovieComboBox;
         private System.Windows.Forms.Label genreAddMovieLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox titleAddMovieTextBox;
         private System.Windows.Forms.Label titleAddMovieLabel;
         private System.Windows.Forms.TextBox yearAddMovieTextBox;
         private System.Windows.Forms.Label yearAddMovieLabel;
@@ -502,10 +520,14 @@
         private System.Windows.Forms.Label imageAddMovieLabel;
         private System.Windows.Forms.Button consultMovieButton;
         private System.Windows.Forms.Button addMovieButton;
-        private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Label movieListViewTitleLabel;
         private System.Windows.Forms.ColumnHeader columnTitle;
         private System.Windows.Forms.ColumnHeader columnYear;
+        private System.Windows.Forms.TextBox genreAddMovieTextBox;
+        private System.Windows.Forms.TextBox imagePathAddMovieTextBox;
+        private System.Windows.Forms.ListBox genreListBox;
+        private System.Windows.Forms.PictureBox moviePictureBox;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

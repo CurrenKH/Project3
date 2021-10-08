@@ -18,28 +18,43 @@ namespace Project3
             InitializeComponent();
 
             ModifiedMovie = selectedMovie;
+
+            DisplayInfo();
         }
 
         private void DisplayInfo()
         {
-            //  Display information from the selected ListBox item
-            //nameTextBox.Text = ModifiedMovie.Title;
-            // subjectComboBox.Text = ModifiedSeries.Subject;
+            //  Display information from the selected ListView item
 
-            //  Counting the subjects from the selected item
-            /*for (int i = 0; i < ModifiedMovie.Genre.Count; i++)
-            {
-                subjectComboBox.Text += ModifiedMovie.Genre[i];
+            titleTextBox.Text = ModifiedMovie.Title;
+            genreTextBox.Text = ModifiedMovie.Genre;
+            yearTextBox.Text = ModifiedMovie.Year.ToString();
+            lengthTextBox.Text = ModifiedMovie.Length;
+            directorTextBox.Text = ModifiedMovie.Director;
+            ratingTextBox.Text = ModifiedMovie.Rating.ToString();
+            imagePathTextBox.Text = ModifiedMovie.ImagePath;
+        }
 
-                //  If there is more than one entry, add a "," inbetween them
-                if (i + 1 < ModifiedMovie.Subjects.Count)
-                {
-                    subjectComboBox.Text += ",";
-                }
-            }*/
+        private void ChangeInfo()
+        {
+            //  Associate the new changes to the selected item coming from the TextBoxes
+            ModifiedMovie.Title = titleTextBox.Text;
+            ModifiedMovie.Genre = genreTextBox.Text;
+            ModifiedMovie.Year = int.Parse(yearTextBox.Text);
+            ModifiedMovie.Length = lengthTextBox.Text;
+            ModifiedMovie.Director = directorTextBox.Text;
+            ModifiedMovie.Rating = decimal.Parse(ratingTextBox.Text);
+            ModifiedMovie.ImagePath = imagePathTextBox.Text;
+        }
 
-            //amountTextBox.Text = ModifiedMovie.Amount.ToString();
-            //publisherTextBox.Text = ModifiedMovie.Publisher;
+        private void ModifyButton_Click(object sender, EventArgs e)
+        {
+            ChangeInfo();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

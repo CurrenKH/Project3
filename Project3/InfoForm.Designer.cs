@@ -38,7 +38,6 @@
             this.ratingLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.lengthTextBox = new System.Windows.Forms.TextBox();
             this.directorTextBox = new System.Windows.Forms.TextBox();
             this.ratingTextBox = new System.Windows.Forms.TextBox();
@@ -46,7 +45,8 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.genreTextBox = new System.Windows.Forms.TextBox();
+            this.imagePathTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,14 +136,6 @@
             this.yearTextBox.Size = new System.Drawing.Size(159, 22);
             this.yearTextBox.TabIndex = 9;
             // 
-            // genreComboBox
-            // 
-            this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Location = new System.Drawing.Point(387, 112);
-            this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(159, 24);
-            this.genreComboBox.TabIndex = 10;
-            // 
             // lengthTextBox
             // 
             this.lengthTextBox.Location = new System.Drawing.Point(387, 189);
@@ -173,6 +165,7 @@
             this.modifyButton.TabIndex = 14;
             this.modifyButton.Text = "Modify and Save";
             this.modifyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
             // deleteButton
             // 
@@ -191,31 +184,38 @@
             this.exitButton.TabIndex = 16;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // imageAddMovieLabel
             // 
             this.imageAddMovieLabel.AutoSize = true;
-            this.imageAddMovieLabel.Location = new System.Drawing.Point(331, 318);
+            this.imageAddMovieLabel.Location = new System.Drawing.Point(331, 307);
             this.imageAddMovieLabel.Name = "imageAddMovieLabel";
             this.imageAddMovieLabel.Size = new System.Drawing.Size(50, 17);
             this.imageAddMovieLabel.TabIndex = 21;
             this.imageAddMovieLabel.Text = "Image:";
             // 
-            // button3
+            // genreTextBox
             // 
-            this.button3.Location = new System.Drawing.Point(387, 306);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 40);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "select image";
-            this.button3.UseVisualStyleBackColor = true;
+            this.genreTextBox.Location = new System.Drawing.Point(387, 112);
+            this.genreTextBox.Name = "genreTextBox";
+            this.genreTextBox.Size = new System.Drawing.Size(159, 22);
+            this.genreTextBox.TabIndex = 26;
+            // 
+            // imagePathTextBox
+            // 
+            this.imagePathTextBox.Location = new System.Drawing.Point(387, 304);
+            this.imagePathTextBox.Name = "imagePathTextBox";
+            this.imagePathTextBox.Size = new System.Drawing.Size(159, 22);
+            this.imagePathTextBox.TabIndex = 27;
             // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 474);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.imagePathTextBox);
+            this.Controls.Add(this.genreTextBox);
             this.Controls.Add(this.imageAddMovieLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteButton);
@@ -223,7 +223,6 @@
             this.Controls.Add(this.ratingTextBox);
             this.Controls.Add(this.directorTextBox);
             this.Controls.Add(this.lengthTextBox);
-            this.Controls.Add(this.genreComboBox);
             this.Controls.Add(this.yearTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.ratingLabel);
@@ -254,7 +253,6 @@
         private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox yearTextBox;
-        private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.TextBox lengthTextBox;
         private System.Windows.Forms.TextBox directorTextBox;
         private System.Windows.Forms.TextBox ratingTextBox;
@@ -262,6 +260,7 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label imageAddMovieLabel;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox genreTextBox;
+        private System.Windows.Forms.TextBox imagePathTextBox;
     }
 }
