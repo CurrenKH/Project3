@@ -71,6 +71,7 @@
             this.moviePictureBox = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -431,11 +432,22 @@
             this.imageAddMovieLabel.TabIndex = 52;
             this.imageAddMovieLabel.Text = "Image Path:";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(1032, 452);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(139, 63);
+            this.deleteButton.TabIndex = 53;
+            this.deleteButton.Text = "Delete Movie";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 564);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.imageAddMovieLabel);
             this.Controls.Add(this.moviePictureBox);
             this.Controls.Add(this.genreListBox);
@@ -528,6 +540,7 @@
         private System.Windows.Forms.PictureBox moviePictureBox;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label imageAddMovieLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

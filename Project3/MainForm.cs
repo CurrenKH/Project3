@@ -263,6 +263,7 @@ namespace Project3
                 //  Method to append all movie nodes to the XML file
                 appendNodeToXMLFile("movies.xml");
 
+                //  Empty movieList
                 movieList = new List<Movie>();
 
                 //  Indicate what XML file to read
@@ -411,6 +412,36 @@ namespace Project3
             }
         }
 
+        private void DeleteNode(string filePath)
+        {
+            //  int variable for selected ListView item
+            int intselectedindex = movieListView.SelectedIndices[0];
 
+            //  String ListView selected item as text
+            String text = movieListView.Items[intselectedindex].Text;
+
+            //  XML reader to match movie title with selected ListView item
+            XElement objElement = XElement.Load(filePath);
+            XElement delNode = objElement.Descendants("movie").Where(a => a.Element("title").Value == text).FirstOrDefault();
+            delNode.Remove();
+            objElement.Save(filePath);
+
+            //  Clear ListView
+            movieListView.Items.Clear();
+
+            //  Empty movieList
+            movieList = new List<Movie>();
+
+            //  Reread XML file
+            readXMLFile("movies.xml");
+
+            //  Update the ListView again
+            UpdateListView();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteNode("movies.xml");
+        }
     }
 }
