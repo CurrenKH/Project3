@@ -49,12 +49,20 @@ namespace Project3
 
         private void ModifyButton_Click(object sender, EventArgs e)
         {
+            //  Method to update info
             ChangeInfo();
         }
+
+
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

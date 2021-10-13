@@ -21,8 +21,9 @@ namespace Project3
 
             readXMLFile("movies.xml");
 
+            UpdateListView();
+
             GetGenre();
-            movieListView.Refresh();
         }
 
         List<Movie> movieList = new List<Movie>();
@@ -87,18 +88,17 @@ namespace Project3
                     //  Take imagepath attribute value and point to existingMovie.ImagePath
                     existingMovie.ImagePath = xmlReader.ReadElementContentAsString();
 
-                    //imageList1.Images.Add(Image.FromFile(existingMovie.ImagePath));
 
 
                     //  Add existingMovie to the movieList
                     movieList.Add(existingMovie);
 
                     //  Create ListViewItem to hold the title and year for each movie
-                    ListViewItem lvi = new ListViewItem();
-                    lvi.Text = existingMovie.Title;
-                    lvi.SubItems.Add(existingMovie.Year.ToString());
+                    //ListViewItem lvi = new ListViewItem();
+                    //lvi.Text = existingMovie.Title;
+                    //lvi.SubItems.Add(existingMovie.Year.ToString());
 
-                    movieListView.Items.Add(lvi);
+                    //movieListView.Items.Add(lvi);
 
                 } while (xmlReader.ReadToFollowing("movie")); // Move to the next 'movie' node in the XML file
 
@@ -114,8 +114,22 @@ namespace Project3
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //  Call genre method to populate genreListBox
-            GetGenre();
+
+        }
+
+        private void UpdateListView()
+        {
+            //  Clear ListView
+            movieListView.Items.Clear();
+
+            //  For each item name add it to the ListView
+            for (int i = 0; i < movieList.Count; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = movieList[i].Title;  
+                lvi.SubItems.Add(movieList[i].Year.ToString());
+                movieListView.Items.Add(lvi);
+            }
         }
 
         private void GetGenre()
@@ -123,9 +137,10 @@ namespace Project3
             //  Clear ListBox
             genreListBox.Items.Clear();
 
-            //  
+            //  Foreach movie that exists in the movie list
             foreach (Movie movie in movieList)
             {
+                //  Check for duplicate entries and add new ones
                 if (!genreListBox.Items.Contains(movie.Genre))
                 {
                     genreListBox.Items.Add(movie.Genre);
@@ -150,6 +165,12 @@ namespace Project3
 
                 //  Show new form
                 consultMovie.ShowDialog();
+
+                //  Refresh method
+                UpdateListView();
+
+                //  TextBox clear method
+                ClearInfoTextBoxes();
             }
         }
 
@@ -170,24 +191,34 @@ namespace Project3
                 lengthMovieTextBox.Text = selectedMovie.Length;
                 directorMovieTextBox.Text = selectedMovie.Director;
                 ratingMovieTextBox.Text = selectedMovie.Rating.ToString();
-                imageMovieTextBox.Text = selectedMovie.ImagePath;
-
-                //int imageIndex = movieList.FindIndex(a => a.Title == selectedMovie);
-                //moviePictureBox.Image = moviePictureBox.Images[imageIndex];
+                imagePathMovieTextBox.Text = selectedMovie.ImagePath;
             }
         }
 
-        private void ClearTextBoxes()
+        private void ClearAddTextBoxes()
         {
             // Clear textboxes
-            genreAddMovieTextBox.Text = "";
             titleAddMovieTextBox.Text = "";
+            genreAddMovieTextBox.Text = "";
             yearAddMovieTextBox.Text = "";
             lengthAddMovieTextBox.Text = "";
             directorAddMovieTextBox.Text = "";
             ratingAddMovieTextBox.Text = "";
             imagePathAddMovieTextBox.Text = "";
         }
+
+        private void ClearInfoTextBoxes()
+        {
+            // Clear textboxes
+            titleMovieTextBox.Text = "";
+            genreMovieTextBox.Text = "";
+            yearMovieTextBox.Text = "";
+            lengthMovieTextBox.Text = "";
+            directorMovieTextBox.Text = "";
+            ratingMovieTextBox.Text = "";
+            imagePathMovieTextBox.Text = "";
+        }
+
         private void AddMovieButton_Click(object sender, EventArgs e)
         {
             if (genreAddMovieTextBox.Text != "" || titleAddMovieTextBox.Text != "" || yearAddMovieTextBox.Text != "" || lengthAddMovieTextBox.Text != ""
@@ -203,14 +234,13 @@ namespace Project3
                 readXMLFile("movies.xml");
 
                 //  Method to clear TextBoxes
-                ClearTextBoxes();
+                ClearAddTextBoxes();
 
-                // Set focus
+                //  Focus genre
                 genreAddMovieTextBox.Focus();
 
-                // Refresh genre
+                //  Refresh genre method
                 GetGenre();
-                //movieListView.Refresh();
             }
             else
             {
@@ -298,29 +328,49 @@ namespace Project3
             }
             else
             {
-                MessageBox.Show("The file " + filePath + " does not exists.");
+                MessageBox.Show("The file " + filePath + " does not exist.");
             }
         }
 
         private void GenreListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Exeption when clicking outside ot the ListBox's index
+            // if a ListBox item is not selected
             if (genreListBox.SelectedIndices.Count <= 0)
             {
-                return;
+                MessageBox.Show("Select a genre.");
             }
-
-            movieListView.Items.Clear();
-
-            string selection = genreListBox.SelectedItem.ToString();
-
-            foreach (Movie movie in movieList)
+            else
             {
-                if (movie.Genre == selection)
-                {
-                    movieListView.Items.Add(movie.Title);
-                }
+                //  Clear ListView
+                movieListView.Items.Clear();
 
+                //  Declare string variable for selected item
+                string selection = genreListBox.SelectedItem.ToString();
+
+                foreach (Movie movie in movieList)
+                {
+                    //  Check if the selected genre matches the any movies with that genre
+                    if (movie.Genre == selection)
+                    {
+                        //  Show index of selected item
+                        titleMovieTextBox.Text = movie.Title;
+                        genreMovieTextBox.Text = movie.Genre;
+                        yearMovieTextBox.Text = movie.Year.ToString();
+                        lengthMovieTextBox.Text = movie.Length;
+                        directorMovieTextBox.Text = movie.Director;
+                        ratingMovieTextBox.Text = movie.Rating.ToString();
+                        imagePathMovieTextBox.Text = movie.ImagePath;
+
+
+                        //  Create ListViewItem to hold the title and year for each movie
+                        ListViewItem lvi = new ListViewItem();
+                        lvi.Text = movie.Title;
+                        lvi.SubItems.Add(movie.Year.ToString());
+
+                        movieListView.Items.Add(lvi);
+                    }
+
+                }
             }
         }
 
