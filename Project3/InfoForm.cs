@@ -64,5 +64,11 @@ namespace Project3
         {
 
         }
+
+        private void InfoForm_Load(object sender, EventArgs e)
+        {
+            //  Passed selected movie image from MainForm to InfoForm
+            consultMoviePictureBox.Image = MainForm.moviePicture;
+        }
     }
 }

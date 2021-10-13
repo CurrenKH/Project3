@@ -26,9 +26,13 @@ namespace Project3
 
             GetGenre();
 
-            imageList1.ImageSize = new Size(256,192);
+            imageList1.ImageSize = new Size(256, 192);
         }
 
+        //  Declare moviePicture as null
+        public static Image moviePicture = null;
+
+        //  Declare list for movies
         List<Movie> movieList = new List<Movie>();
 
         private void readXMLFile(string filePath)
@@ -139,6 +143,15 @@ namespace Project3
                 lvi.Text = movieList[i].Title;  
                 lvi.SubItems.Add(movieList[i].Year.ToString());
                 movieListView.Items.Add(lvi);
+
+                if (movieListView.SelectedItems.Count > 0)
+                {
+                    int intselectedindex = movieListView.SelectedIndices[0];
+                    String text = movieListView.Items[intselectedindex].Text;
+                    string replacement = Regex.Replace(text, @"\t|\n|\r", "");
+                    int imageIndex = movieList.FindIndex(a => a.Title == replacement);
+                    moviePictureBox.Image = imageList1.Images[imageIndex];
+                }
             }
         }
 
@@ -167,6 +180,9 @@ namespace Project3
             }
             else
             {
+                //  Movie image points to PictureBox
+                moviePicture = moviePictureBox.Image;
+
                 //  Declare index selected from ListView to variable
                 int selectedIndex = movieListView.SelectedIndices[0];
 
@@ -181,6 +197,7 @@ namespace Project3
 
                 //  TextBox clear method
                 ClearInfoTextBoxes();
+                moviePictureBox.Image = null;
             }
         }
 

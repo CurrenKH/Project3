@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.moviePictureBox = new System.Windows.Forms.PictureBox();
+            this.consultMoviePictureBox = new System.Windows.Forms.PictureBox();
             this.movieInfoLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.genreLabel = new System.Windows.Forms.Label();
@@ -47,16 +47,16 @@
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.genreTextBox = new System.Windows.Forms.TextBox();
             this.imagePathTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consultMoviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // moviePictureBox
+            // consultMoviePictureBox
             // 
-            this.moviePictureBox.Location = new System.Drawing.Point(12, 62);
-            this.moviePictureBox.Name = "moviePictureBox";
-            this.moviePictureBox.Size = new System.Drawing.Size(300, 400);
-            this.moviePictureBox.TabIndex = 0;
-            this.moviePictureBox.TabStop = false;
+            this.consultMoviePictureBox.Location = new System.Drawing.Point(12, 62);
+            this.consultMoviePictureBox.Name = "consultMoviePictureBox";
+            this.consultMoviePictureBox.Size = new System.Drawing.Size(300, 400);
+            this.consultMoviePictureBox.TabIndex = 0;
+            this.consultMoviePictureBox.TabStop = false;
             // 
             // movieInfoLabel
             // 
@@ -233,10 +233,11 @@
             this.Controls.Add(this.genreLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.movieInfoLabel);
-            this.Controls.Add(this.moviePictureBox);
+            this.Controls.Add(this.consultMoviePictureBox);
             this.Name = "InfoForm";
             this.Text = "InfoForm";
-            ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).EndInit();
+            this.Load += new System.EventHandler(this.InfoForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.consultMoviePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +245,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox moviePictureBox;
+        private System.Windows.Forms.PictureBox consultMoviePictureBox;
         private System.Windows.Forms.Label movieInfoLabel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label genreLabel;
