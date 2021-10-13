@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace Project3
 {
@@ -24,6 +25,8 @@ namespace Project3
             UpdateListView();
 
             GetGenre();
+
+            imageList1.ImageSize = new Size(256,192);
         }
 
         List<Movie> movieList = new List<Movie>();
@@ -88,7 +91,14 @@ namespace Project3
                     //  Take imagepath attribute value and point to existingMovie.ImagePath
                     existingMovie.ImagePath = xmlReader.ReadElementContentAsString();
 
-
+                    try
+                    {
+                        imageList1.Images.Add(Image.FromFile(existingMovie.ImagePath));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Invalid file path.");
+                    }
 
                     //  Add existingMovie to the movieList
                     movieList.Add(existingMovie);
@@ -192,6 +202,12 @@ namespace Project3
                 directorMovieTextBox.Text = selectedMovie.Director;
                 ratingMovieTextBox.Text = selectedMovie.Rating.ToString();
                 imagePathMovieTextBox.Text = selectedMovie.ImagePath;
+
+                int intselectedindex = movieListView.SelectedIndices[0];
+                String text = movieListView.Items[intselectedindex].Text;
+                string replacement = Regex.Replace(text, @"\t|\n|\r", "");
+                int imageIndex = movieList.FindIndex(a => a.Title == replacement);
+                moviePictureBox.Image = imageList1.Images[imageIndex];
             }
         }
 
@@ -230,6 +246,8 @@ namespace Project3
                 //  Method to append all movie nodes to the XML file
                 appendNodeToXMLFile("movies.xml");
 
+                movieList = new List<Movie>();
+
                 //  Indicate what XML file to read
                 readXMLFile("movies.xml");
 
@@ -241,6 +259,8 @@ namespace Project3
 
                 //  Refresh genre method
                 GetGenre();
+
+                UpdateListView();
             }
             else
             {
