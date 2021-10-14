@@ -26,11 +26,10 @@ namespace Project3
             //  Show selected movie info in the TextBoxes
             DisplayInfo();
         }
-        MainForm test = new MainForm();
+
         private void DisplayInfo()
         {
             //  Display information from the selected ListView item
-
             titleTextBox.Text = ModifiedMovie.Title;
             genreTextBox.Text = ModifiedMovie.Genre;
             yearTextBox.Text = ModifiedMovie.Year.ToString();
