@@ -237,14 +237,14 @@ namespace Project3
             {
                 //  Set int variable to selected ListView item in array (#0)
                 int intselectedindex = movieListView.SelectedIndices[0];
+
                 //  String selected ListView item (movie title) as text
                 String text = movieListView.Items[intselectedindex].Text;
-                //  Declare index selected from ListView to variable
-                //int selectedIndex = movieListView.SelectedIndices[0];
-                //Movie selectedMovie = new Movie();
-                //selectedMovie = movieList[intselectedindex];
+
+                //  For each movie that exists in the list
                 foreach (Movie selectedMovie in movieList)
                 {
+                    //  Check if the selected ListView item is equal to any movie title in the list
                     if (selectedMovie.Title == text)
                     {
                         //  Show index of selected item

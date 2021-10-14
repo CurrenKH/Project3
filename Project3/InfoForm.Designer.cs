@@ -46,6 +46,7 @@
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.genreTextBox = new System.Windows.Forms.TextBox();
             this.imagePathTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consultMoviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,7 +180,7 @@
             // imageAddMovieLabel
             // 
             this.imageAddMovieLabel.AutoSize = true;
-            this.imageAddMovieLabel.Location = new System.Drawing.Point(331, 307);
+            this.imageAddMovieLabel.Location = new System.Drawing.Point(331, 323);
             this.imageAddMovieLabel.Name = "imageAddMovieLabel";
             this.imageAddMovieLabel.Size = new System.Drawing.Size(50, 17);
             this.imageAddMovieLabel.TabIndex = 21;
@@ -194,16 +195,26 @@
             // 
             // imagePathTextBox
             // 
-            this.imagePathTextBox.Location = new System.Drawing.Point(387, 304);
+            this.imagePathTextBox.Location = new System.Drawing.Point(387, 320);
             this.imagePathTextBox.Name = "imagePathTextBox";
             this.imagePathTextBox.Size = new System.Drawing.Size(159, 22);
             this.imagePathTextBox.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(357, 300);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(208, 17);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "Format: images/name.extension";
             // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 474);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.imagePathTextBox);
             this.Controls.Add(this.genreTextBox);
             this.Controls.Add(this.imageAddMovieLabel);
@@ -251,5 +262,6 @@
         private System.Windows.Forms.Label imageAddMovieLabel;
         private System.Windows.Forms.TextBox genreTextBox;
         private System.Windows.Forms.TextBox imagePathTextBox;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -74,6 +74,8 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.resetFilterButton = new System.Windows.Forms.Button();
+            this.consultInfoLabel = new System.Windows.Forms.Label();
+            this.formatInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,7 +361,7 @@
             // 
             // consultMovieButton
             // 
-            this.consultMovieButton.Location = new System.Drawing.Point(1032, 383);
+            this.consultMovieButton.Location = new System.Drawing.Point(1032, 406);
             this.consultMovieButton.Name = "consultMovieButton";
             this.consultMovieButton.Size = new System.Drawing.Size(139, 63);
             this.consultMovieButton.TabIndex = 22;
@@ -369,7 +371,7 @@
             // 
             // addMovieButton
             // 
-            this.addMovieButton.Location = new System.Drawing.Point(1177, 383);
+            this.addMovieButton.Location = new System.Drawing.Point(1177, 406);
             this.addMovieButton.Name = "addMovieButton";
             this.addMovieButton.Size = new System.Drawing.Size(139, 63);
             this.addMovieButton.TabIndex = 23;
@@ -396,7 +398,7 @@
             // 
             // imagePathAddMovieTextBox
             // 
-            this.imagePathAddMovieTextBox.Location = new System.Drawing.Point(1097, 338);
+            this.imagePathAddMovieTextBox.Location = new System.Drawing.Point(1097, 355);
             this.imagePathAddMovieTextBox.Name = "imagePathAddMovieTextBox";
             this.imagePathAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.imagePathAddMovieTextBox.TabIndex = 49;
@@ -428,7 +430,7 @@
             // imageAddMovieLabel
             // 
             this.imageAddMovieLabel.AutoSize = true;
-            this.imageAddMovieLabel.Location = new System.Drawing.Point(1008, 341);
+            this.imageAddMovieLabel.Location = new System.Drawing.Point(1008, 358);
             this.imageAddMovieLabel.Name = "imageAddMovieLabel";
             this.imageAddMovieLabel.Size = new System.Drawing.Size(83, 17);
             this.imageAddMovieLabel.TabIndex = 52;
@@ -436,7 +438,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(1032, 452);
+            this.deleteButton.Location = new System.Drawing.Point(1032, 475);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(139, 63);
             this.deleteButton.TabIndex = 53;
@@ -446,7 +448,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(1177, 452);
+            this.exitButton.Location = new System.Drawing.Point(1177, 475);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(139, 63);
             this.exitButton.TabIndex = 54;
@@ -456,7 +458,7 @@
             // 
             // resetFilterButton
             // 
-            this.resetFilterButton.Location = new System.Drawing.Point(700, 490);
+            this.resetFilterButton.Location = new System.Drawing.Point(724, 502);
             this.resetFilterButton.Name = "resetFilterButton";
             this.resetFilterButton.Size = new System.Drawing.Size(117, 36);
             this.resetFilterButton.TabIndex = 55;
@@ -464,11 +466,31 @@
             this.resetFilterButton.UseVisualStyleBackColor = true;
             this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
             // 
+            // consultInfoLabel
+            // 
+            this.consultInfoLabel.AutoSize = true;
+            this.consultInfoLabel.Location = new System.Drawing.Point(696, 481);
+            this.consultInfoLabel.Name = "consultInfoLabel";
+            this.consultInfoLabel.Size = new System.Drawing.Size(191, 17);
+            this.consultInfoLabel.TabIndex = 56;
+            this.consultInfoLabel.Text = "Use before consulting movie.";
+            // 
+            // formatInfoLabel
+            // 
+            this.formatInfoLabel.AutoSize = true;
+            this.formatInfoLabel.Location = new System.Drawing.Point(1094, 335);
+            this.formatInfoLabel.Name = "formatInfoLabel";
+            this.formatInfoLabel.Size = new System.Drawing.Size(208, 17);
+            this.formatInfoLabel.TabIndex = 57;
+            this.formatInfoLabel.Text = "Format: images/name.extension";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 564);
+            this.Controls.Add(this.formatInfoLabel);
+            this.Controls.Add(this.consultInfoLabel);
             this.Controls.Add(this.resetFilterButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteButton);
@@ -567,6 +589,8 @@
         public System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button resetFilterButton;
+        private System.Windows.Forms.Label consultInfoLabel;
+        private System.Windows.Forms.Label formatInfoLabel;
     }
 }
 
