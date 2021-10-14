@@ -33,9 +33,9 @@ namespace Project3
         public static Image moviePicture = null;
 
         //  Declare list for movies
-        List<Movie> movieList = new List<Movie>();
+        public List<Movie> movieList = new List<Movie>();
 
-        private void readXMLFile(string filePath)
+        public void readXMLFile(string filePath)
         {
             Movie existingMovie;
 
@@ -131,7 +131,7 @@ namespace Project3
 
         }
 
-        private void UpdateListView()
+        public void UpdateListView()
         {
             //  Clear ListView
             movieListView.Items.Clear();
@@ -190,7 +190,7 @@ namespace Project3
                 InfoForm consultMovie = new InfoForm(movieList[selectedIndex]);
 
                 //  Show new form
-                consultMovie.ShowDialog();
+                consultMovie.ShowDialog(this);
 
                 //  Refresh method
                 UpdateListView();
@@ -412,34 +412,38 @@ namespace Project3
             }
         }
 
-        private void DeleteNode(string filePath)
+        public void DeleteNode(string filePath)
         {
-            //  int variable for selected ListView item
-            int intselectedindex = movieListView.SelectedIndices[0];
+            if (movieListView.SelectedItems.Count > 0)
+            {
+                //  int variable for selected ListView item
+                int intselectedindex = movieListView.SelectedIndices[0];
 
-            //  String ListView selected item as text
-            String text = movieListView.Items[intselectedindex].Text;
+                //  String ListView selected item as text
+                String text = movieListView.Items[intselectedindex].Text;
 
-            //  XML reader to match movie title with selected ListView item
-            XElement objElement = XElement.Load(filePath);
-            XElement delNode = objElement.Descendants("movie").Where(a => a.Element("title").Value == text).FirstOrDefault();
-            delNode.Remove();
-            objElement.Save(filePath);
+                //  XML reader to match movie title with selected ListView item
+                XElement objElement = XElement.Load(filePath);
+                XElement delNode = objElement.Descendants("movie").Where(a => a.Element("title").Value == text).FirstOrDefault();
+                delNode.Remove();
+                objElement.Save(filePath);
 
-            //  Clear ListView
-            movieListView.Items.Clear();
+                //  Clear ListView
+                movieListView.Items.Clear();
 
-            //  Empty movieList
-            movieList = new List<Movie>();
+                //  Empty movieList
+                movieList = new List<Movie>();
 
-            //  Reread XML file
-            readXMLFile("movies.xml");
+                //  Reread XML file
+                readXMLFile("movies.xml");
 
-            //  Update the ListView again
-            UpdateListView();
+                //  Update the ListView again
+                UpdateListView();
+            }
+            
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        public void DeleteButton_Click(object sender, EventArgs e)
         {
             DeleteNode("movies.xml");
         }

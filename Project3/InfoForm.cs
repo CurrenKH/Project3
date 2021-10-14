@@ -15,6 +15,7 @@ namespace Project3
 {
     public partial class InfoForm : Form
     {
+
         public Movie ModifiedMovie { get; set; }
         public InfoForm(Movie selectedMovie)
         {
@@ -22,9 +23,10 @@ namespace Project3
 
             ModifiedMovie = selectedMovie;
 
+
             DisplayInfo();
         }
-
+        MainForm test = new MainForm();
         private void DisplayInfo()
         {
             //  Display information from the selected ListView item
@@ -56,8 +58,6 @@ namespace Project3
             ChangeInfo();
         }
 
-
-
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -65,7 +65,11 @@ namespace Project3
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
+            //  Click delete button from MainForm
+            //  You can delete movies from either the MainForm or InfoForm (your preference)
+            var frm = (MainForm)this.Owner;
+            if (frm != null)
+                frm.deleteButton.PerformClick();
         }
 
         private void InfoForm_Load(object sender, EventArgs e)

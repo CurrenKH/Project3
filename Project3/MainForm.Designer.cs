@@ -499,7 +499,6 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.ListView movieListView;
         private System.Windows.Forms.Label imageMovieLabel;
         private System.Windows.Forms.TextBox ratingMovieTextBox;
         private System.Windows.Forms.Label ratingMovieLabel;
@@ -540,7 +539,8 @@
         private System.Windows.Forms.PictureBox moviePictureBox;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label imageAddMovieLabel;
-        private System.Windows.Forms.Button deleteButton;
+        public System.Windows.Forms.ListView movieListView;
+        public System.Windows.Forms.Button deleteButton;
     }
 }
 
