@@ -43,7 +43,6 @@
             this.ratingTextBox = new System.Windows.Forms.TextBox();
             this.modifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.genreTextBox = new System.Windows.Forms.TextBox();
             this.imagePathTextBox = new System.Windows.Forms.TextBox();
@@ -161,7 +160,7 @@
             // 
             this.modifyButton.Location = new System.Drawing.Point(336, 358);
             this.modifyButton.Name = "modifyButton";
-            this.modifyButton.Size = new System.Drawing.Size(128, 49);
+            this.modifyButton.Size = new System.Drawing.Size(128, 67);
             this.modifyButton.TabIndex = 14;
             this.modifyButton.Text = "Modify and Save";
             this.modifyButton.UseVisualStyleBackColor = true;
@@ -171,21 +170,11 @@
             // 
             this.deleteButton.Location = new System.Drawing.Point(470, 358);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(128, 49);
+            this.deleteButton.Size = new System.Drawing.Size(128, 67);
             this.deleteButton.TabIndex = 15;
-            this.deleteButton.Text = "Delete";
+            this.deleteButton.Text = "Delete and Save";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.Location = new System.Drawing.Point(470, 413);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(128, 49);
-            this.exitButton.TabIndex = 16;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // imageAddMovieLabel
             // 
@@ -218,7 +207,6 @@
             this.Controls.Add(this.imagePathTextBox);
             this.Controls.Add(this.genreTextBox);
             this.Controls.Add(this.imageAddMovieLabel);
-            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.modifyButton);
             this.Controls.Add(this.ratingTextBox);
@@ -260,7 +248,6 @@
         private System.Windows.Forms.TextBox ratingTextBox;
         private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label imageAddMovieLabel;
         private System.Windows.Forms.TextBox genreTextBox;
         private System.Windows.Forms.TextBox imagePathTextBox;

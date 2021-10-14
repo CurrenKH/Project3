@@ -171,6 +171,22 @@ namespace Project3
             }
         }
 
+        private void RefreshListViewData()
+        {
+            //  This method is used for refreshing the ListBox
+            //  Whenever a movie is modified from the second form, it creates a duplicate movie
+            //  and applies the necessary changes with the new version, then deletes the original copy
+
+            //  Empty movieList
+            movieList = new List<Movie>();
+
+            //  Reread XML file
+            readXMLFile("movies.xml");
+
+            //  Update the ListView again
+            UpdateListView();
+        }
+
         private void ConsultMovieButton_Click(object sender, EventArgs e)
         {
             //  If a series is not selected in the ListBox
@@ -197,7 +213,11 @@ namespace Project3
 
                 //  TextBox clear method
                 ClearInfoTextBoxes();
+
+                //  Clear pictureBox
                 moviePictureBox.Image = null;
+
+                RefreshListViewData();
             }
         }
 
@@ -445,7 +465,14 @@ namespace Project3
 
         public void DeleteButton_Click(object sender, EventArgs e)
         {
+            //  Call method to delete movie
             DeleteNode("movies.xml");
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            //  Closes the form
+            this.Close();
         }
     }
 }
