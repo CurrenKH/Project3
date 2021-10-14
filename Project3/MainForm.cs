@@ -139,16 +139,26 @@ namespace Project3
             //  For each item name add it to the ListView
             for (int i = 0; i < movieList.Count; i++)
             {
+                //  Create ListViewItem to hold the title and year for each movie
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = movieList[i].Title;  
                 lvi.SubItems.Add(movieList[i].Year.ToString());
+
+                //  Populate ListView with created lvi item
                 movieListView.Items.Add(lvi);
 
                 if (movieListView.SelectedItems.Count > 0)
                 {
+                    //  Set int variable to selected ListView item in array (#0)
                     int intselectedindex = movieListView.SelectedIndices[0];
+
+                    //  String selected ListView item (movie title) as text
                     String text = movieListView.Items[intselectedindex].Text;
+
+                    //  String variable for Regex argument (input, pattern, replacement string data)
                     string replacement = Regex.Replace(text, @"\t|\n|\r", "");
+
+                    //  Find image index for movieList to affiliate the correct image with the selected movie
                     int imageIndex = movieList.FindIndex(a => a.Title == replacement);
                     moviePictureBox.Image = imageList1.Images[imageIndex];
                 }
@@ -217,6 +227,7 @@ namespace Project3
                 //  Clear pictureBox
                 moviePictureBox.Image = null;
 
+                //  Refresh data in ListView method
                 RefreshListViewData();
             }
         }
@@ -240,9 +251,16 @@ namespace Project3
                 ratingMovieTextBox.Text = selectedMovie.Rating.ToString();
                 imagePathMovieTextBox.Text = selectedMovie.ImagePath;
 
+                //  Set int variable to selected ListView item in array (#0)
                 int intselectedindex = movieListView.SelectedIndices[0];
+
+                //  String selected ListView item (movie title) as text
                 String text = movieListView.Items[intselectedindex].Text;
+
+                //  String variable for Regex argument (input, pattern, replacement string data)
                 string replacement = Regex.Replace(text, @"\t|\n|\r", "");
+
+                //  Find image index for movieList to affiliate the correct image with the selected movie
                 int imageIndex = movieList.FindIndex(a => a.Title == replacement);
                 moviePictureBox.Image = imageList1.Images[imageIndex];
             }
@@ -274,6 +292,7 @@ namespace Project3
 
         private void AddMovieButton_Click(object sender, EventArgs e)
         {
+            //  Check if any entries are empty
             if (genreAddMovieTextBox.Text != "" || titleAddMovieTextBox.Text != "" || yearAddMovieTextBox.Text != "" || lengthAddMovieTextBox.Text != ""
                 || directorAddMovieTextBox.Text != "" || ratingAddMovieTextBox.Text != "" || imagePathAddMovieTextBox.Text != "")
             {
@@ -308,6 +327,7 @@ namespace Project3
 
         private void appendNodeToXMLFile(string filePath)
         {
+            //  Create XML document instance
             XmlDocument xmlDoc = new XmlDocument();
 
             if (File.Exists(filePath))
@@ -378,7 +398,7 @@ namespace Project3
                 addMovie.AppendChild(addRating);
                 addMovie.AppendChild(addImagePath);
 
-                //  Send movie node to main movies node
+                //  Send movie node to main <movies> node
                 rootNode.AppendChild(addMovie);
 
                 //  Save file

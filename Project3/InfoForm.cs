@@ -15,7 +15,7 @@ namespace Project3
 {
     public partial class InfoForm : Form
     {
-
+        //  Variable for modified movie info
         public Movie ModifiedMovie { get; set; }
         public InfoForm(Movie selectedMovie)
         {
@@ -23,7 +23,7 @@ namespace Project3
 
             ModifiedMovie = selectedMovie;
 
-
+            //  Show selected movie info in the TextBoxes
             DisplayInfo();
         }
         MainForm test = new MainForm();
@@ -56,103 +56,92 @@ namespace Project3
         {
             //  Method to update info
             ChangeInfo();
+
+            //  Create XML document instance
             XmlDocument xmlDoc = new XmlDocument();
 
             if (File.Exists("movies.xml"))
             {
-                // Load the xml file root element in memory
+                //  Load indicated XML file (movies.xml)
                 xmlDoc.Load("movies.xml");
 
-                // Create the XML File root element in memory
+                //  rootNode to memory
                 XmlElement rootNode = xmlDoc.DocumentElement;
 
-                // Create one XML for each node representing a new movie entry 
-                XmlElement newMovieNode = xmlDoc.CreateElement("movie");
-                XmlElement newTitleNode = xmlDoc.CreateElement("title");
-                XmlElement newYearNode = xmlDoc.CreateElement("year");
-                XmlElement newLengthNode = xmlDoc.CreateElement("length");
-                XmlElement newDirectorNode = xmlDoc.CreateElement("director");
-                XmlElement newRatingNode = xmlDoc.CreateElement("audienceRating");
-                XmlElement newFilePathNode = xmlDoc.CreateElement("imageFilePath");
+                //  XML nodes created for movie and its attributes
+                XmlElement addMovie = xmlDoc.CreateElement("movie");
+                XmlElement addTitle = xmlDoc.CreateElement("title");
+                XmlElement addYear = xmlDoc.CreateElement("year");
+                XmlElement addLength = xmlDoc.CreateElement("length");
+                XmlElement addDirector = xmlDoc.CreateElement("director");
+                XmlElement addRating = xmlDoc.CreateElement("audienceRating");
+                XmlElement addImagePath = xmlDoc.CreateElement("imageFilePath");
 
-                // Create a TextNode element to assign the content to each node in the movie entry
+                //  Create textNode element
                 XmlText newTextNode;
 
+                //  Set attribute for genre from (modified) TextBox
+                addMovie.SetAttribute("genre", genreTextBox.Text);
 
-                // --- TITLE ---
-
-                // Assign a value for the 'category' attribute of the 'book' node
-                newMovieNode.SetAttribute("genre", genreTextBox.Text);
-
-                // Create the content for the 'title' node
+                //  Use new node for (modified) title
                 newTextNode = xmlDoc.CreateTextNode(titleTextBox.Text);
 
-                // Add the content to the 'title' node
-                newTitleNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addTitle.AppendChild(newTextNode);
 
-
-                // --- YEAR ---
-
-                // Create the content for the 'Year' node
+                //  Use new node for (modified) year
                 newTextNode = xmlDoc.CreateTextNode(yearTextBox.Text);
 
-                // Add the content to the 'Year' node
-                newYearNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addYear.AppendChild(newTextNode);
 
-
-                // --- LENGTH ---
-
-                // Create the content for the 'Length' node
+                //  Use new node for (modified) length
                 newTextNode = xmlDoc.CreateTextNode(lengthTextBox.Text);
 
-                // Add the content to the 'Length' node
-                newLengthNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addLength.AppendChild(newTextNode);
 
-
-                // --- DIRECTOR ---
-
-                // Create the content for the 'Director' node
+                //  Use new node for (modified) director
                 newTextNode = xmlDoc.CreateTextNode(directorTextBox.Text);
 
-                // Add the content to the 'Director' node
-                newDirectorNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addDirector.AppendChild(newTextNode);
 
-
-                // --- RATING ---
-
-                // Create the content for the 'Rating' node
+                //  Use new node for (modified) rating
                 newTextNode = xmlDoc.CreateTextNode(ratingTextBox.Text);
 
-                // Add the content to the 'Rating' node
-                newRatingNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addRating.AppendChild(newTextNode);
 
-
-                // --- PATH ---
-
-                // Create the content for the 'FilePath' node
+                //  Use new node for (modified) imagepath
                 newTextNode = xmlDoc.CreateTextNode(imagePathTextBox.Text);
 
-                // Add the content to the 'FilePath' node
-                newFilePathNode.AppendChild(newTextNode);
+                //  Add inputted information to text node
+                addImagePath.AppendChild(newTextNode);
 
 
-                // Append each 'child' node to the 'movie' node 
-                newMovieNode.AppendChild(newTitleNode);
-                newMovieNode.AppendChild(newYearNode);
-                newMovieNode.AppendChild(newLengthNode);
-                newMovieNode.AppendChild(newDirectorNode);
-                newMovieNode.AppendChild(newRatingNode);
-                newMovieNode.AppendChild(newFilePathNode);
+                //  Send each movie attribute to addMovie node
+                addMovie.AppendChild(addTitle);
+                addMovie.AppendChild(addYear);
+                addMovie.AppendChild(addLength);
+                addMovie.AppendChild(addDirector);
+                addMovie.AppendChild(addRating);
+                addMovie.AppendChild(addImagePath);
 
-                // Append the 'movie' node to the root ('movies') node
-                rootNode.AppendChild(newMovieNode);
+                //  Send movie node to main <movies> node
+                rootNode.AppendChild(addMovie);
 
-                // Save the updated version of the xmlDocument to the file
+                //  Save file
                 xmlDoc.Save("movies.xml");
 
+
+                //  Uses delete button function from MainForm
+                //  You can delete movies from either the MainForm or InfoForm (your preference)
                 var frm2 = (MainForm)this.Owner;
                 if (frm2 != null)
                     frm2.deleteButton.PerformClick();
+
+                //  Closes the current form
                 this.Close();
             }
         }
@@ -160,15 +149,15 @@ namespace Project3
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            //  Click delete button from MainForm
+            //  Uses delete button function from MainForm
             //  You can delete movies from either the MainForm or InfoForm (your preference)
             var frm = (MainForm)this.Owner;
             if (frm != null)
                 frm.deleteButton.PerformClick();
 
-
-            //  Closes secondary form
-            this.Hide();
+            //  Closes the current form
+            this.Close();
+            
         }
 
         private void InfoForm_Load(object sender, EventArgs e)
