@@ -448,32 +448,12 @@ namespace Project3
                         lvi.Text = movie.Title;
                         lvi.SubItems.Add(movie.Year.ToString());
                         movieListView.Items.Add(lvi);
-                        if (movieListView.SelectedItems.Count > 0)
-                        {
-                            //  Set int variable to selected ListView item in array (#0)
-                            int intselectedindex = movieListView.SelectedIndices[0];
-
-                            //  String selected ListView item (movie title) as text
-                            String text = movieListView.Items[intselectedindex].Text;
-                            if (movie.Title == text)
-                            {
-
-                                //  Show index of selected item
-                                titleMovieTextBox.Text = movie.Title;
-                                genreMovieTextBox.Text = movie.Genre;
-                                yearMovieTextBox.Text = movie.Year.ToString();
-                                lengthMovieTextBox.Text = movie.Length;
-                                directorMovieTextBox.Text = movie.Director;
-                                ratingMovieTextBox.Text = movie.Rating.ToString();
-                                imagePathMovieTextBox.Text = movie.ImagePath;
-                            }
-                        }
-
-
                     }
                 }
             }
         }
+
+
 
         public void DeleteNode(string filePath)
         {
@@ -522,6 +502,15 @@ namespace Project3
         {
             //  Closes the form
             this.Close();
+        }
+
+        private void ResetFilterButton_Click(object sender, EventArgs e)
+        {
+            //  Update the ListView again
+            UpdateListView();
+
+            //  Refresh genre method
+            GetGenre();
         }
     }
 }

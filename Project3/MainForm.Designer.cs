@@ -73,6 +73,7 @@
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.resetFilterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -453,11 +454,22 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // resetFilterButton
+            // 
+            this.resetFilterButton.Location = new System.Drawing.Point(700, 490);
+            this.resetFilterButton.Name = "resetFilterButton";
+            this.resetFilterButton.Size = new System.Drawing.Size(117, 36);
+            this.resetFilterButton.TabIndex = 55;
+            this.resetFilterButton.Text = "Reset Filter";
+            this.resetFilterButton.UseVisualStyleBackColor = true;
+            this.resetFilterButton.Click += new System.EventHandler(this.ResetFilterButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 564);
+            this.Controls.Add(this.resetFilterButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.imageAddMovieLabel);
@@ -554,6 +566,7 @@
         public System.Windows.Forms.ListView movieListView;
         public System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button resetFilterButton;
     }
 }
 
