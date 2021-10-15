@@ -75,6 +75,8 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.resetFilterButton = new System.Windows.Forms.Button();
             this.consultInfoLabel = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.selectImageButton = new System.Windows.Forms.Button();
             this.formatInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -400,6 +402,7 @@
             // 
             this.imagePathAddMovieTextBox.Location = new System.Drawing.Point(1097, 355);
             this.imagePathAddMovieTextBox.Name = "imagePathAddMovieTextBox";
+            this.imagePathAddMovieTextBox.ReadOnly = true;
             this.imagePathAddMovieTextBox.Size = new System.Drawing.Size(195, 22);
             this.imagePathAddMovieTextBox.TabIndex = 49;
             // 
@@ -475,20 +478,37 @@
             this.consultInfoLabel.TabIndex = 56;
             this.consultInfoLabel.Text = "Use before consulting movie.";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // selectImageButton
+            // 
+            this.selectImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectImageButton.Location = new System.Drawing.Point(1298, 340);
+            this.selectImageButton.Name = "selectImageButton";
+            this.selectImageButton.Size = new System.Drawing.Size(48, 42);
+            this.selectImageButton.TabIndex = 58;
+            this.selectImageButton.Text = "...";
+            this.selectImageButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.selectImageButton.UseVisualStyleBackColor = true;
+            this.selectImageButton.Click += new System.EventHandler(this.SelectImageButton_Click);
+            // 
             // formatInfoLabel
             // 
             this.formatInfoLabel.AutoSize = true;
             this.formatInfoLabel.Location = new System.Drawing.Point(1094, 335);
             this.formatInfoLabel.Name = "formatInfoLabel";
-            this.formatInfoLabel.Size = new System.Drawing.Size(208, 17);
+            this.formatInfoLabel.Size = new System.Drawing.Size(211, 17);
             this.formatInfoLabel.TabIndex = 57;
-            this.formatInfoLabel.Text = "Format: images/name.extension";
+            this.formatInfoLabel.Text = "Click button to browse Directory.";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 564);
+            this.Controls.Add(this.selectImageButton);
             this.Controls.Add(this.formatInfoLabel);
             this.Controls.Add(this.consultInfoLabel);
             this.Controls.Add(this.resetFilterButton);
@@ -590,6 +610,8 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button resetFilterButton;
         private System.Windows.Forms.Label consultInfoLabel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Label formatInfoLabel;
     }
 }

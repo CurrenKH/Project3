@@ -26,7 +26,11 @@ namespace Project3
 
             GetGenre();
 
+            //  Set imageList1 size to prevent displayed images from being extremely small
             imageList1.ImageSize = new Size(256, 192);
+
+            //  Disable TextBox to prevent any modifications from being done
+            imagePathAddMovieTextBox.Enabled = false;
         }
 
         //  Declare moviePicture as null
@@ -511,6 +515,20 @@ namespace Project3
 
             //  Refresh genre method
             GetGenre();
+        }
+
+        private void SelectImageButton_Click(object sender, EventArgs e)
+        {
+            //  Use FileDialog to search for an image to select
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedImagePath = openFileDialog1.FileName;
+
+                imagePathAddMovieTextBox.Text = selectedImagePath;
+            }
         }
     }
 }
