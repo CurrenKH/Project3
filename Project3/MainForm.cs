@@ -222,25 +222,14 @@ namespace Project3
                 //  Show new form
                 consultMovie.ShowDialog(this);
 
-                //  Refresh method
-                UpdateListView();
-
                 //  TextBox clear method
                 ClearDisplayedData();
-
-                //  Refresh data in ListView method
-                RefreshListViewData();
-
-                //  Empty movieList
-                movieList = new List<Movie>();
 
                 //  Clear imageList for any modified movie item
                 imageList1.Images.Clear();
 
-                //  Indicate what XML file to read
-                readXMLFile("movies.xml");
-
-
+                //  Refresh data in ListView method
+                RefreshListViewData();
             }
         }
 
@@ -310,9 +299,39 @@ namespace Project3
 
         private void AddMovieButton_Click(object sender, EventArgs e)
         {
-            //  Check if any entries are empty
-            if (genreAddMovieTextBox.Text != "" || titleAddMovieTextBox.Text != "" || yearAddMovieTextBox.Text != "" || lengthAddMovieTextBox.Text != ""
-                || directorAddMovieTextBox.Text != "" || ratingAddMovieTextBox.Text != "" || imagePathAddMovieTextBox.Text != "")
+            //  Declare int variable for integer checking
+            int num = -1;
+
+            //  Create array of TextBoxes
+            var textBoxCollection = new[] { genreAddMovieTextBox, titleAddMovieTextBox, yearAddMovieTextBox, lengthAddMovieTextBox,
+            directorAddMovieTextBox, ratingAddMovieTextBox, imagePathAddMovieTextBox};
+
+            //  Declare boolean value to use for array
+            bool atleastOneTextboxEmpty;
+
+            //  Check if any TextBoxes are empty within the array
+            if (atleastOneTextboxEmpty = textBoxCollection.Any(t => String.IsNullOrWhiteSpace(t.Text)))
+            {
+                //  Show error message
+                MessageBox.Show("Not all entries are filled.");
+            }
+            if (!int.TryParse(yearAddMovieTextBox.Text, out num))
+            {
+                //  Show error message
+                MessageBox.Show("Invalid year input. Use an integer instead.");
+
+                //  Clear TextBox
+                yearAddMovieTextBox.Text = "";
+            }
+            if (!int.TryParse(ratingAddMovieTextBox.Text, out num))
+            {
+                //  Show error message
+                MessageBox.Show("Invalid rating input. Use an integer instead.");
+
+                //  Clear TextBox
+                ratingAddMovieTextBox.Text = "";
+            }
+            else
             {
                 //  Clear ListView to prepare for new added item
                 movieListView.Items.Clear();
@@ -340,10 +359,6 @@ namespace Project3
 
                 //  Update ListView method
                 UpdateListView();
-            }
-            else
-            {
-                MessageBox.Show("Not all entries are filled.");
             }
         }
 
@@ -461,7 +476,6 @@ namespace Project3
                     //  Check if the selected genre matches the any movies with that genre
                     if (movie.Genre == selection)
                     {
-
                         //  Create ListViewItem to hold the title and year for each movie
                         ListViewItem lvi = new ListViewItem();
                         lvi.Text = movie.Title;

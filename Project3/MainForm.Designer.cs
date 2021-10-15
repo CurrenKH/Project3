@@ -96,6 +96,7 @@
             this.movieListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnTitle,
             this.columnYear});
+            this.movieListView.FullRowSelect = true;
             this.movieListView.HideSelection = false;
             this.movieListView.Location = new System.Drawing.Point(12, 78);
             this.movieListView.Name = "movieListView";
@@ -575,7 +576,6 @@
         private System.Windows.Forms.Label yearMovieLabel;
         private System.Windows.Forms.TextBox yearMovieTextBox;
         private System.Windows.Forms.Label titleMovieLabel;
-        private System.Windows.Forms.TextBox titleMovieTextBox;
         private System.Windows.Forms.Label genreMovieLabel;
         private System.Windows.Forms.Label movieInfoLabel;
         private System.Windows.Forms.TextBox genreMovieTextBox;
@@ -613,6 +613,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Label formatInfoLabel;
+        public System.Windows.Forms.TextBox titleMovieTextBox;
     }
 }
 
