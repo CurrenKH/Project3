@@ -320,16 +320,16 @@ namespace Project3
                 //  Show error message
                 MessageBox.Show("Invalid year input. Use an integer instead.");
 
-                //  Clear TextBox
-                yearAddMovieTextBox.Text = "";
+                //  Undo improper input
+                yearAddMovieTextBox.Undo();
             }
             if (!int.TryParse(ratingAddMovieTextBox.Text, out num))
             {
                 //  Show error message
                 MessageBox.Show("Invalid rating input. Use an integer instead.");
 
-                //  Clear TextBox
-                ratingAddMovieTextBox.Text = "";
+                //  Undo improper input
+                ratingAddMovieTextBox.Undo();
             }
             else
             {

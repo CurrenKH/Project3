@@ -48,7 +48,6 @@
             this.imagePathTextBox = new System.Windows.Forms.TextBox();
             this.selectImageButton = new System.Windows.Forms.Button();
             this.formatInfoLabel = new System.Windows.Forms.Label();
-            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.consultMoviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,21 +222,11 @@
             this.formatInfoLabel.TabIndex = 60;
             this.formatInfoLabel.Text = "Click button to browse Directory.";
             // 
-            // exitButton
-            // 
-            this.exitButton.Location = new System.Drawing.Point(202, 379);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(128, 67);
-            this.exitButton.TabIndex = 61;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 474);
-            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.formatInfoLabel);
             this.Controls.Add(this.selectImageButton);
             this.Controls.Add(this.imagePathTextBox);
@@ -289,6 +278,5 @@
         private System.Windows.Forms.TextBox imagePathTextBox;
         private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Label formatInfoLabel;
-        private System.Windows.Forms.Button exitButton;
     }
 }

@@ -54,6 +54,17 @@ namespace Project3
             ModifiedMovie.ImagePath = imagePathTextBox.Text;
         }
 
+        private void UndoTextBoxes()
+        {
+            //  Revert TextBoxes to it's original value in case of an input error
+            titleTextBox.Undo();
+            genreTextBox.Undo();
+            yearTextBox.Undo();
+            lengthTextBox.Undo();
+            directorTextBox.Undo();
+            ratingTextBox.Undo();
+            imagePathTextBox.Undo();
+        }
         private void ModifyButton_Click(object sender, EventArgs e)
         {
             //  Declare int variable for integer checking
@@ -70,25 +81,29 @@ namespace Project3
             if (atleastOneTextboxEmpty = textBoxCollection.Any(t => String.IsNullOrWhiteSpace(t.Text)))
             {
                 //  Show error message
-                MessageBox.Show("Not all entries are filled.");
+                MessageBox.Show("Not all entries are filled. Reconsult movie and use proper inputs if you wish to make any changes.");
+
+                //  Revert TextBox method
+                UndoTextBoxes();
+
             }
             if (!int.TryParse(yearTextBox.Text, out num))
             {
                 //  Show error message
-                MessageBox.Show("Invalid year input. Use an integer instead.");
+                MessageBox.Show("Invalid year input, use an integer instead. Reconsult movie and use proper inputs if you wish to make any changes.");
 
-                //  Clear TextBox
-                yearTextBox.Text = "";
+                //  Undo TextBox
+                yearTextBox.Undo();
             }
             if (!int.TryParse(ratingTextBox.Text, out num))
             {
                 //  Show error message
-                MessageBox.Show("Invalid rating input. Use an integer instead.");
+                MessageBox.Show("Invalid rating input, use an integer instead. Reconsult movie and use proper inputs if you wish to make any changes.");
 
-                //  Clear TextBox
-                ratingTextBox.Text = "";
+                //  Undo TextBox
+                ratingTextBox.Undo();
             }
-            else
+            try
             {
                 //  Method to update info
                 ChangeInfo();
@@ -180,6 +195,11 @@ namespace Project3
                     //  Closes the current form
                     this.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                //  Display an error message.
+                MessageBox.Show(ex.Message);
             }
         }
 
