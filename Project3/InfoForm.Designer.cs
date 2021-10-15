@@ -46,7 +46,8 @@
             this.imageAddMovieLabel = new System.Windows.Forms.Label();
             this.genreTextBox = new System.Windows.Forms.TextBox();
             this.imagePathTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.selectImageButton = new System.Windows.Forms.Button();
+            this.formatInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consultMoviePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,11 +181,11 @@
             // imageAddMovieLabel
             // 
             this.imageAddMovieLabel.AutoSize = true;
-            this.imageAddMovieLabel.Location = new System.Drawing.Point(331, 323);
+            this.imageAddMovieLabel.Location = new System.Drawing.Point(298, 323);
             this.imageAddMovieLabel.Name = "imageAddMovieLabel";
-            this.imageAddMovieLabel.Size = new System.Drawing.Size(50, 17);
+            this.imageAddMovieLabel.Size = new System.Drawing.Size(83, 17);
             this.imageAddMovieLabel.TabIndex = 21;
-            this.imageAddMovieLabel.Text = "Image:";
+            this.imageAddMovieLabel.Text = "Image Path:";
             // 
             // genreTextBox
             // 
@@ -200,21 +201,34 @@
             this.imagePathTextBox.Size = new System.Drawing.Size(159, 22);
             this.imagePathTextBox.TabIndex = 27;
             // 
-            // label2
+            // selectImageButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(357, 300);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 17);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "Format: images/name.extension";
+            this.selectImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectImageButton.Location = new System.Drawing.Point(552, 309);
+            this.selectImageButton.Name = "selectImageButton";
+            this.selectImageButton.Size = new System.Drawing.Size(54, 42);
+            this.selectImageButton.TabIndex = 59;
+            this.selectImageButton.Text = "...";
+            this.selectImageButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.selectImageButton.UseVisualStyleBackColor = true;
+            this.selectImageButton.Click += new System.EventHandler(this.SelectImageButton_Click);
+            // 
+            // formatInfoLabel
+            // 
+            this.formatInfoLabel.AutoSize = true;
+            this.formatInfoLabel.Location = new System.Drawing.Point(335, 300);
+            this.formatInfoLabel.Name = "formatInfoLabel";
+            this.formatInfoLabel.Size = new System.Drawing.Size(211, 17);
+            this.formatInfoLabel.TabIndex = 60;
+            this.formatInfoLabel.Text = "Click button to browse Directory.";
             // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 474);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.formatInfoLabel);
+            this.Controls.Add(this.selectImageButton);
             this.Controls.Add(this.imagePathTextBox);
             this.Controls.Add(this.genreTextBox);
             this.Controls.Add(this.imageAddMovieLabel);
@@ -262,6 +276,7 @@
         private System.Windows.Forms.Label imageAddMovieLabel;
         private System.Windows.Forms.TextBox genreTextBox;
         private System.Windows.Forms.TextBox imagePathTextBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button selectImageButton;
+        private System.Windows.Forms.Label formatInfoLabel;
     }
 }

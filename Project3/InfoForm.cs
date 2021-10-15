@@ -25,6 +25,9 @@ namespace Project3
 
             //  Show selected movie info in the TextBoxes
             DisplayInfo();
+
+            //  Disable TextBox to prevent any modifications from being done
+            imagePathTextBox.Enabled = false;
         }
 
         private void DisplayInfo()
@@ -163,6 +166,24 @@ namespace Project3
         {
             //  Passed selected movie image from MainForm to InfoForm
             consultMoviePictureBox.Image = MainForm.moviePicture;
+        }
+
+        private void SelectImageButton_Click(object sender, EventArgs e)
+        {
+            //  Use FileDialog to search for an image to select
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            //  Set filter to only show images to select from
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //  String variable for the file path and name taken from OpenFileDialog
+                string selectedImagePath = openFileDialog1.FileName;
+
+                //  Set image path TextBox by the selected file
+                imagePathTextBox.Text = selectedImagePath;
+            }
         }
     }
 }

@@ -521,12 +521,16 @@ namespace Project3
         {
             //  Use FileDialog to search for an image to select
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            //  Set filter to only show images to select from
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                //  String variable for the file path and name taken from OpenFileDialog
                 string selectedImagePath = openFileDialog1.FileName;
 
+                //  Set image path TextBox by the selected file
                 imagePathAddMovieTextBox.Text = selectedImagePath;
             }
         }
