@@ -228,9 +228,19 @@ namespace Project3
                 //  TextBox clear method
                 ClearDisplayedData();
 
-
                 //  Refresh data in ListView method
                 RefreshListViewData();
+
+                //  Empty movieList
+                movieList = new List<Movie>();
+
+                //  Clear imageList for any modified movie item
+                imageList1.Images.Clear();
+
+                //  Indicate what XML file to read
+                readXMLFile("movies.xml");
+
+
             }
         }
 
@@ -312,6 +322,9 @@ namespace Project3
 
                 //  Empty movieList
                 movieList = new List<Movie>();
+
+                //  Clear imageList for any modified movie item
+                imageList1.Images.Clear();
 
                 //  Indicate what XML file to read
                 readXMLFile("movies.xml");
@@ -433,8 +446,10 @@ namespace Project3
             {
                 //  Clear ListView
                 movieListView.Items.Clear();
+
                 //  Empty movieList
                 movieList = new List<Movie>();
+
                 //  Indicate what XML file to read
                 readXMLFile("movies.xml");
 
@@ -478,14 +493,8 @@ namespace Project3
                 //  Clear ListView
                 movieListView.Items.Clear();
 
-                //  Empty movieList
-                movieList = new List<Movie>();
-
-                //  Reread XML file
-                readXMLFile("movies.xml");
-
-                //  Update the ListView again
-                UpdateListView();
+                //  Refresh data in ListView method
+                RefreshListViewData();
             }
             
         }
