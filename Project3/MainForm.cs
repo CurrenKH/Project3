@@ -44,7 +44,11 @@ namespace Project3
             imagePathAddMovieTextBox.Enabled = false;
         }
 
-        //  Declare moviePicture as null
+        ///  <summary>
+        /// 
+        ///  Defaulting moviePicture as null value
+        /// 
+        ///  </summary>
         public static Image moviePicture = null;
 
         ///  <summary>
@@ -379,7 +383,7 @@ namespace Project3
                 //  Show error message
                 MessageBox.Show("Not all entries are filled.");
             }
-            if (!int.TryParse(yearAddMovieTextBox.Text, out num))
+            else if (!int.TryParse(yearAddMovieTextBox.Text, out num))
             {
                 //  Show error message
                 MessageBox.Show("Invalid year input. Use an integer instead.");
@@ -387,7 +391,7 @@ namespace Project3
                 //  Undo improper input
                 yearAddMovieTextBox.Undo();
             }
-            if (!int.TryParse(ratingAddMovieTextBox.Text, out num))
+            else if (!int.TryParse(ratingAddMovieTextBox.Text, out num))
             {
                 //  Show error message
                 MessageBox.Show("Invalid rating input. Use an integer instead.");
@@ -397,32 +401,40 @@ namespace Project3
             }
             else
             {
-                //  Clear ListView to prepare for new added item
-                movieListView.Items.Clear();
+                try
+                {
+                    //  Clear ListView to prepare for new added item
+                    movieListView.Items.Clear();
 
-                //  Method to append all movie nodes to the XML file
-                appendNodeXML("movies.xml");
+                    //  Method to append all movie nodes to the XML file
+                    appendNodeXML("movies.xml");
 
-                //  Empty movieList
-                movieList = new List<Movie>();
+                    //  Empty movieList
+                    movieList = new List<Movie>();
 
-                //  Clear imageList for any modified movie item
-                imageList1.Images.Clear();
+                    //  Clear imageList for any modified movie item
+                    imageList1.Images.Clear();
 
-                //  Indicate what XML file to read
-                readXMLFile("movies.xml");
+                    //  Indicate what XML file to read
+                    readXMLFile("movies.xml");
 
-                //  Method to clear TextBoxes
-                ClearAddTextBoxes();
+                    //  Method to clear TextBoxes
+                    ClearAddTextBoxes();
 
-                //  Focus genre
-                genreAddMovieTextBox.Focus();
+                    //  Focus genre
+                    genreAddMovieTextBox.Focus();
 
-                //  Refresh genre method
-                GetGenre();
+                    //  Refresh genre method
+                    GetGenre();
 
-                //  Update ListView method
-                UpdateListView();
+                    //  Update ListView method
+                    UpdateListView();
+                }
+                catch (Exception ex)
+                {
+                    // Display an error message.
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 

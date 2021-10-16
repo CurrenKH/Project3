@@ -13,9 +13,18 @@ using System.Xml.Linq;
 
 namespace Project3
 {
+    ///  <summary>
+    /// 
+    ///  Secondary form from MainForm
+    /// 
+    ///  </summary>
     public partial class InfoForm : Form
     {
-        //  Variable for modified movie info
+        ///  <summary>
+        /// 
+        ///  Newly created class variable for the InfoForm
+        /// 
+        ///  </summary>
         public Movie ModifiedMovie { get; set; }
 
         ///  <summary>

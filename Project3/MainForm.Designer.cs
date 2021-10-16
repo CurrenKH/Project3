@@ -85,7 +85,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(378, 21);
+            this.titleLabel.Location = new System.Drawing.Point(560, 9);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(292, 32);
             this.titleLabel.TabIndex = 0;
@@ -556,7 +556,6 @@
             this.Controls.Add(this.titleLabel);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.moviePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -613,7 +612,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button selectImageButton;
         private System.Windows.Forms.Label formatInfoLabel;
-        public System.Windows.Forms.TextBox titleMovieTextBox;
+        private System.Windows.Forms.TextBox titleMovieTextBox;
     }
 }
 
