@@ -14,8 +14,19 @@ using System.Text.RegularExpressions;
 
 namespace Project3
 {
+    ///  <summary>
+    /// 
+    ///  Project 3 OOP 2
+    ///  Curren Holden
+    /// 
+    ///  </summary>
     public partial class MainForm : Form
     {
+        ///  <summary>
+        /// 
+        ///  Builds form
+        /// 
+        ///  </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -36,9 +47,21 @@ namespace Project3
         //  Declare moviePicture as null
         public static Image moviePicture = null;
 
+        ///  <summary>
+        /// 
+        ///  Create a list to hold all movie information
+        ///  
+        ///  </summary>
+        
         //  Declare list for movies
         public List<Movie> movieList = new List<Movie>();
 
+        ///  <summary>
+        /// 
+        ///  Method that reads the XML file and associates the correct data in the right places
+        /// 
+        ///  </summary>
+        ///  <param name="filePath"></param>
         public void readXMLFile(string filePath)
         {
             Movie existingMovie;
@@ -130,11 +153,12 @@ namespace Project3
                 MessageBox.Show(filePath + " does not exist.");
             }
         }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
 
-        }
-
+        ///  <summary>
+        /// 
+        ///  Method that updates the ListView when any major changes are made
+        /// 
+        ///  </summary>
         public void UpdateListView()
         {
             //  Clear ListView
@@ -169,6 +193,11 @@ namespace Project3
             }
         }
 
+        ///  <summary>
+        /// 
+        ///  Method that collects all genre names found in the movieList and removes any duplicate entries as well
+        /// 
+        ///  </summary>
         private void GetGenre()
         {
             //  Clear ListBox
@@ -185,11 +214,15 @@ namespace Project3
             }
         }
 
+        ///  <summary>
+        /// 
+        ///  Method used for refreshing the ListBox
+        ///  Whenever a movie is modified from the second form, it creates a duplicate movie
+        ///  and applies the necessary changes with the new version, then deletes the original copy
+        ///  
+        ///  </summary>
         private void RefreshListViewData()
         {
-            //  This method is used for refreshing the ListBox
-            //  Whenever a movie is modified from the second form, it creates a duplicate movie
-            //  and applies the necessary changes with the new version, then deletes the original copy
 
             //  Empty movieList
             movieList = new List<Movie>();
@@ -201,6 +234,14 @@ namespace Project3
             UpdateListView();
         }
 
+        ///  <summary>
+        ///  
+        ///  Creates a new instance for the second form and passes the selected
+        ///  index information to it for modifying/deleting the chosen movie item
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void ConsultMovieButton_Click(object sender, EventArgs e)
         {
             //  If a series is not selected in the ListBox
@@ -232,7 +273,13 @@ namespace Project3
                 RefreshListViewData();
             }
         }
-
+        ///  <summary>
+        ///  Takes the selected index from the ListView and displays the 
+        ///  data in the appropriate TextBoxes as well as the image
+        ///  in the moviePictureBox
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void MovieListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             //  If an item is selected
@@ -270,6 +317,9 @@ namespace Project3
             }
         }
 
+        ///  <summary>
+        ///  Method that clears the add movie TextBoxes once they have been used
+        ///  </summary>
         private void ClearAddTextBoxes()
         {
             // Clear textboxes
@@ -282,6 +332,12 @@ namespace Project3
             imagePathAddMovieTextBox.Text = "";
         }
 
+        ///  <summary>
+        ///  
+        ///  Method that clears the movie info data TextBoxes and moviePicture
+        ///  This is usually called when you finish modifying or deleting a movie
+        ///  
+        ///  </summary>
         private void ClearDisplayedData()
         {
             // Clear textboxes
@@ -297,6 +353,14 @@ namespace Project3
             moviePictureBox.Image = null;
         }
 
+        ///  <summary>
+        ///  
+        ///  Adds a movie to the ListView if the inputs are correct
+        ///  by calling the method appendNodeXML
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void AddMovieButton_Click(object sender, EventArgs e)
         {
             //  Declare int variable for integer checking
@@ -337,7 +401,7 @@ namespace Project3
                 movieListView.Items.Clear();
 
                 //  Method to append all movie nodes to the XML file
-                appendNodeToXMLFile("movies.xml");
+                appendNodeXML("movies.xml");
 
                 //  Empty movieList
                 movieList = new List<Movie>();
@@ -362,7 +426,14 @@ namespace Project3
             }
         }
 
-        private void appendNodeToXMLFile(string filePath)
+        ///  <summary>
+        ///   
+        ///  Takes user inputs from TextBoxes and creates XML format for the
+        ///  data to be added to the original read XML file
+        /// 
+        ///  </summary>
+        ///  <param name="filePath"></param>
+        private void appendNodeXML(string filePath)
         {
             //  Create XML document instance
             XmlDocument xmlDoc = new XmlDocument();
@@ -447,6 +518,13 @@ namespace Project3
             }
         }
 
+        ///  <summary>
+        ///  
+        ///  Shows corresponding movies with the selected genre in the ListView
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void GenreListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //  Clear information display method
@@ -488,6 +566,13 @@ namespace Project3
 
 
 
+        ///  <summary>
+        ///  
+        ///  Method that removes and deletes selected movie from both
+        ///  the ListView display and XML file
+        ///  
+        ///  </summary>
+        ///  <param name="filePath"></param>
         public void DeleteNode(string filePath)
         {
             if (movieListView.SelectedItems.Count > 0)
@@ -513,6 +598,13 @@ namespace Project3
             
         }
 
+        ///  <summary>
+        ///  
+        ///  Calls method to delete movie and refresh GUI data to update
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             //  Call method to delete movie
@@ -525,12 +617,26 @@ namespace Project3
             GetGenre();
         }
 
+        ///  <summary>
+        /// 
+        ///  Closes the form
+        /// 
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void ExitButton_Click(object sender, EventArgs e)
         {
             //  Closes the form
             this.Close();
         }
 
+        ///  <summary>
+        /// 
+        ///  Resets ListView filter from the genre ListBox to display all movies
+        /// 
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void ResetFilterButton_Click(object sender, EventArgs e)
         {
             //  Update the ListView again
@@ -540,6 +646,13 @@ namespace Project3
             GetGenre();
         }
 
+        ///  <summary>
+        /// 
+        ///  Uses OpenFileDialog to select an image file from your PC
+        /// 
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void SelectImageButton_Click(object sender, EventArgs e)
         {
             //  Use FileDialog to search for an image to select

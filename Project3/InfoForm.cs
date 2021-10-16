@@ -17,6 +17,12 @@ namespace Project3
     {
         //  Variable for modified movie info
         public Movie ModifiedMovie { get; set; }
+
+        ///  <summary>
+        /// 
+        ///  Builds form
+        /// 
+        ///  </summary>
         public InfoForm(Movie selectedMovie)
         {
             InitializeComponent();
@@ -30,6 +36,12 @@ namespace Project3
             imagePathTextBox.Enabled = false;
         }
 
+        ///  <summary>
+        /// 
+        ///  Method that displays selected movie info from the MainForm to
+        ///  the proper TextBoxes on this form
+        ///  
+        ///  </summary>
         private void DisplayInfo()
         {
             //  Display information from the selected ListView item
@@ -42,6 +54,12 @@ namespace Project3
             imagePathTextBox.Text = ModifiedMovie.ImagePath;
         }
 
+        /// <summary>
+        /// 
+        ///  Method that rewrites selected movie info according to
+        ///  the data entered in each TextBox
+        ///  
+        /// </summary>
         private void ChangeInfo()
         {
             //  Associate the new changes to the selected item coming from the TextBoxes
@@ -54,6 +72,11 @@ namespace Project3
             ModifiedMovie.ImagePath = imagePathTextBox.Text;
         }
 
+        ///  <summary>
+        /// 
+        ///  Method that undos TextBoxes in case of any inproper entry
+        ///  
+        ///  </summary>
         private void UndoTextBoxes()
         {
             //  Revert TextBoxes to it's original value in case of an input error
@@ -65,6 +88,15 @@ namespace Project3
             ratingTextBox.Undo();
             imagePathTextBox.Undo();
         }
+
+
+        ///  <summary>
+        ///  
+        ///  Checks user inputs then saves modifications made and closes the form
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
             //  Declare int variable for integer checking
@@ -203,7 +235,13 @@ namespace Project3
             }
         }
 
-
+        ///  <summary>
+        ///  
+        ///  Deletes selected movie and closes the form
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             //  Uses delete button function from MainForm
@@ -217,12 +255,26 @@ namespace Project3
             
         }
 
+        ///  <summary>
+        ///  
+        ///  Takes current image displayed from MainForm and displays it here too
+        ///  
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void InfoForm_Load(object sender, EventArgs e)
         {
             //  Passed selected movie image from MainForm to InfoForm
             consultMoviePictureBox.Image = MainForm.moviePicture;
         }
 
+        ///  <summary>
+        /// 
+        ///  Uses OpenFileDialog to select an image file from your PC
+        /// 
+        ///  </summary>
+        ///  <param name="sender"></param>
+        ///  <param name="e"></param>
         private void SelectImageButton_Click(object sender, EventArgs e)
         {
             //  Use FileDialog to search for an image to select
