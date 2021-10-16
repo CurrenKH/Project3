@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Project3
 {
+    ///  <summary>
+    /// 
+    ///  Movie class for holding data from each movie in the XML file
+    /// 
+    ///  </summary>
     public class Movie
     {
         //  Property for genre
@@ -29,6 +34,12 @@ namespace Project3
         //  Property for image path
         public string ImagePath { get; set; }
 
+        ///  <summary>
+        /// 
+        ///  Constructor for movie
+        /// 
+        ///  </summary>
+
         //  Constructor
         public Movie()
         {
@@ -40,6 +51,12 @@ namespace Project3
             Rating = 0;
             ImagePath = "";
         }
+
+        ///  <summary>
+        /// 
+        ///  Overload cnstructor for movie
+        /// 
+        ///  </summary>
 
         //  Overload constructor
         public Movie(string genre, string title, int year, string length, string director, int rating, string imagepath)
